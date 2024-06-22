@@ -14,10 +14,24 @@ const displayPhones = phones => {
 const phoneContainer = document.getElementById('phone-container');
 phoneContainer.textContent = " ";
 
+// display show all button if there are more than 12 phones
+const showAllContainer = document.getElementById('show-all-container');
+if(phones.length > 12)
+  {
+    showAllContainer.classList.remove('hidden');
+  }
+else{
+  showAllContainer.classList.add('hidden');
+}
+
+
+
+phones = phones.slice(0,10);
+
 
 
     phones.forEach(phone => {
-        console.log(phone);
+        // console.log(phone);
         // create a div
         const phoneCard = document.createElement('div');
         phoneCard.classList = `card w-96 p-4 mb-5  bg-gray-100 shadow-xl`;
