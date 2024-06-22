@@ -16,7 +16,7 @@ const phoneContainer = document.getElementById('phone-container');
         console.log(phone);
         // create a div
         const phoneCard = document.createElement('div');
-        phoneCard.classList = `card w-96 bg-gray-100 shadow-xl`;
+        phoneCard.classList = `card w-96 p-4 mb-5  bg-gray-100 shadow-xl`;
         // Set innerHTML
         phoneCard.innerHTML =`
           <figure><img src="${phone.image}" alt="Shoes" /></figure>
@@ -33,9 +33,12 @@ const phoneContainer = document.getElementById('phone-container');
     })
 
 }
-
-
-
-
+// handle Search Button
+const handleSearch = () =>{
+  console.log("Search Button Clicked");
+}
 
 loadPhone();
+
+
+
