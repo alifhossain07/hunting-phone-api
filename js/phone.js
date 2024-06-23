@@ -44,8 +44,8 @@ if(!isShowAll)
                  <div class="card-body">
                   <h2 class="card-title">${phone.phone_name}</h2>
                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                   <div class="card-actions justify-end">
-                     <button class="btn first-letter:btn-primary">Buy Now</button>
+                   <div class="card-actions justify-center">
+                     <button onclick ="handleShowDetail('${phone.slug}');show_details_modal.showModal() " class="btn first-letter:btn-primary">Show Details</button>
                       </div>
                     </div>
         `
@@ -87,5 +87,25 @@ const handleShowAll = () =>
 
 // loadPhone();
 
+// Modal
+const handleShowDetail = async (id) =>
+  {
+    console.log("clicked" , id);
+// load Single Phone Data
+    const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
+    const data = await res.json()
+    console.log(data);
+    const phone = data.data;
+    showPhoneDetails(data);
 
+
+    
+
+  }
+
+  const showPhoneDetails = (phone) => {
+    console.log(phone);
+    // show the modal
+    show_details_modal.showModal();
+  }
 
